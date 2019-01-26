@@ -28,11 +28,14 @@ console.log('3333 : ',fields["inputValue"]);
            formIsValid = false;
            errors["inputValue"] = "Cannot be empty";
         }
-        if(typeof fields["inputValue"] !== "undefined" || typeof fields["inputValue"] !== undefined){
-            if(!fields["inputValue"].match(/^[0-9]{1,2}$|^100$|^0[1-9]{2}$|^00[1-9]{1}$|^000$/)){
+        if(typeof fields["inputValue"] != "undefined"){
+        	if(!fields["inputValue"].match(/^[0-9]{1,2}$|^100$|^0[1-9]{2}$|^00[1-9]{1}$|^000$/)){
                formIsValid = false;
                errors["inputValue"] = "Only numbers ranging 0-100";
             }        
+         }else{
+        	 formIsValid = false;
+             errors["inputValue"] = "First Type Number then click";
          }
         this.setState({errors: errors});
         return formIsValid;
