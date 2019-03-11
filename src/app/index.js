@@ -175,8 +175,5 @@ store.dispatch({
 	type:"NAME",
 	payload:"MAYANK"
 });
-store.dispatch({
-	type:"AGE",
-	payload:25
-});
+
 
