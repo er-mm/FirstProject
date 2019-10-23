@@ -32,9 +32,9 @@ export class LifeCycleMethods extends React.Component {
   componentDidUpdate(prevProps, prevState, snapshot) {
     log("ComponentDidUpdate");
     log("prevProps, prevState, snapshot");
-	log(prevProps);
+    log(prevProps);
     log(prevState);
-	log(snapshot);
+    log(snapshot);
   }
 
   componentWillUnmount() {
@@ -44,7 +44,7 @@ export class LifeCycleMethods extends React.Component {
   shouldComponentUpdate(nextProps, nextState) {
     log("shouldComponentUpdate from Child");
     log("nextProps, nextState");
-	log(nextProps);
+    log(nextProps);
     log(nextState);
     return true;
   }
@@ -52,11 +52,11 @@ export class LifeCycleMethods extends React.Component {
   getSnapshotBeforeUpdate(prevProps, prevState) {
     log("getSnapshotBeforeUpdate from Child");
     log("prevProps, prevState");
-	log(prevProps);
+    log(prevProps);
     log(prevState);
     return null;
   }
-  render() {  
+  render() {
     log("render from Child");
 
     return (

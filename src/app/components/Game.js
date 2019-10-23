@@ -2,158 +2,158 @@ import React from "react";
 import fetch from 'isomorphic-fetch';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
-export class Game extends React.Component{
-    constructor(props){
+export class Game extends React.Component {
+    constructor(props) {
         super();
         //this.age = props.age;
-        this.state={
+        this.state = {
             fields: {},
-           errors: {},
-           count: 5,
-           message: "Please enter number from 0 - 100",
-		   flag: false,
-		   randomNum: Math.floor(Math.random() * 101)
+            errors: {},
+            count: 5,
+            message: "Please enter number from 0 - 100",
+            flag: false,
+            randomNum: Math.floor(Math.random() * 101)
         }
-        
+
     }
 
-    handleValidation(){
-        
+    handleValidation() {
+
         let fields = this.state.fields;
         let errors = {};
         let formIsValid = true;
-console.log('3333 : ',fields["inputValue"]);
+        console.log('3333 : ', fields["inputValue"]);
         //Name
-        if(!fields["inputValue"]){
-           formIsValid = false;
-           errors["inputValue"] = "Cannot be empty";
+        if (!fields["inputValue"]) {
+            formIsValid = false;
+            errors["inputValue"] = "Cannot be empty";
         }
-        if(typeof fields["inputValue"] != "undefined"){
-        	if(!fields["inputValue"].match(/^[0-9]{1,2}$|^100$|^0[1-9]{2}$|^00[1-9]{1}$|^000$/)){
-               formIsValid = false;
-               errors["inputValue"] = "Only numbers ranging 0-100";
-            }        
-         }else{
-        	 formIsValid = false;
-             errors["inputValue"] = "First Type Number then click";
-         }
-        this.setState({errors: errors});
+        if (typeof fields["inputValue"] != "undefined") {
+            if (!fields["inputValue"].match(/^[0-9]{1,2}$|^100$|^0[1-9]{2}$|^00[1-9]{1}$|^000$/)) {
+                formIsValid = false;
+                errors["inputValue"] = "Only numbers ranging 0-100";
+            }
+        } else {
+            formIsValid = false;
+            errors["inputValue"] = "First Type Number then click";
+        }
+        this.setState({ errors: errors });
         return formIsValid;
-   }
-    handleChange(field, e){         
-        let fields = this.state.fields;
-        fields[field] = e.target.value;        
-        this.setState({fields});
     }
-    myFunc(randomNum,e){
+    handleChange(field, e) {
+        let fields = this.state.fields;
+        fields[field] = e.target.value;
+        this.setState({ fields });
+    }
+    myFunc(randomNum, e) {
         e.preventDefault();
-       if(this.handleValidation()){
-		   this.state.count = this.state.count-1;
-           this.setState({count:this.state.count});
-          // console.log("count is : ",this.state.count); 
-           let count = this.state.count;  
-        console.log("in my" +randomNum+'function');
-        let num = document.getElementById("inputValue").value;
-       // console.log("num you type",num);
-        if((num == "" || num == null || isNaN(num)) && count>0){
-            document.getElementById("inputValue").value = '';
-            this.setState({message:"Please type a number. Guess left "+count});
-            }
-            else if((num > 100 || num < 1) && count>0){
+        if (this.handleValidation()) {
+            this.state.count = this.state.count - 1;
+            this.setState({ count: this.state.count });
+            // console.log("count is : ",this.state.count); 
+            let count = this.state.count;
+            console.log("in my" + randomNum + 'function');
+            let num = document.getElementById("inputValue").value;
+            // console.log("num you type",num);
+            if ((num == "" || num == null || isNaN(num)) && count > 0) {
                 document.getElementById("inputValue").value = '';
-                this.setState({message:"Please enter a number from 0 - 100. Guess left "+count});
-        }
-           else if(num > randomNum && count>0){
-            document.getElementById("inputValue").value = '';
-            this.setState({message:"Please type a smaller number. Guess left "+count});
+                this.setState({ message: "Please type a number. Guess left " + count });
             }
-            else if(num < randomNum && count>0){
+            else if ((num > 100 || num < 1) && count > 0) {
                 document.getElementById("inputValue").value = '';
-                this.setState({message:"Please type a greater number. Guess left "+count});
+                this.setState({ message: "Please enter a number from 0 - 100. Guess left " + count });
             }
-            else if(num == randomNum){
-              console.log("in else");
-			  this.setState({flag: true});
-              this.setState({message:"Congrats  !!!. You Guess the number in  "+(5-count)+" chances. :) "});
-                document.getElementById("inputValue").value = "Congrats!! You guess correctly : "+num;
-              document.getElementById('inputValue').readOnly = true;
-              document.getElementById("clickBtn").disabled = true;
-              document.getElementById('inputValue').style.display='none';
-             }
-            else if(count == 0){
-				 this.setState({flag: true});
-				 this.setState({count:this.state.count-1});
-                this.setState({message:"Guess left "+count});
-                document.getElementById("inputValue").value = "sorry you cannot guess correct number .. My number was : "+randomNum;
+            else if (num > randomNum && count > 0) {
+                document.getElementById("inputValue").value = '';
+                this.setState({ message: "Please type a smaller number. Guess left " + count });
+            }
+            else if (num < randomNum && count > 0) {
+                document.getElementById("inputValue").value = '';
+                this.setState({ message: "Please type a greater number. Guess left " + count });
+            }
+            else if (num == randomNum) {
+                console.log("in else");
+                this.setState({ flag: true });
+                this.setState({ message: "Congrats  !!!. You Guess the number in  " + (5 - count) + " chances. :) " });
+                document.getElementById("inputValue").value = "Congrats!! You guess correctly : " + num;
                 document.getElementById('inputValue').readOnly = true;
                 document.getElementById("clickBtn").disabled = true;
-                document.getElementById('inputValue').style.display='none';
-               }
-        
+                document.getElementById('inputValue').style.display = 'none';
+            }
+            else if (count == 0) {
+                this.setState({ flag: true });
+                this.setState({ count: this.state.count - 1 });
+                this.setState({ message: "Guess left " + count });
+                document.getElementById("inputValue").value = "sorry you cannot guess correct number .. My number was : " + randomNum;
+                document.getElementById('inputValue').readOnly = true;
+                document.getElementById("clickBtn").disabled = true;
+                document.getElementById('inputValue').style.display = 'none';
+            }
 
-       }else{
-		   console.log('this.state.errors["inputValue"] : ',this.state.errors["inputValue"]);
-	   }
-   }  
-    again(){
-      this.setState({
+
+        } else {
+            console.log('this.state.errors["inputValue"] : ', this.state.errors["inputValue"]);
+        }
+    }
+    again() {
+        this.setState({
             fields: {},
-           errors: {},
-           count: 5,
-           message: "Please enter number from 0 - 100",
-		   flag: false,
-		   randomNum: Math.floor(Math.random() * 101)
+            errors: {},
+            count: 5,
+            message: "Please enter number from 0 - 100",
+            flag: false,
+            randomNum: Math.floor(Math.random() * 101)
         });
-      document.getElementById('inputValue').style.display='block';
-		document.getElementById('inputValue').readOnly = false;
-		document.getElementById("inputValue").value = '';
-   } 
-	
-	componentWillUpdate(){
-    this.nameInput.focus();
-  }
-  
-    render(){
-       // let randomNum = this.props.randomNum; 
+        document.getElementById('inputValue').style.display = 'block';
+        document.getElementById('inputValue').readOnly = false;
+        document.getElementById("inputValue").value = '';
+    }
+
+    componentWillUpdate() {
+        this.nameInput.focus();
+    }
+
+    render() {
+        // let randomNum = this.props.randomNum; 
         //let num = 0;
         let heading = `A random number is generated by the system.
                         You have to choose a number between 0 - 100.
                         If the number chosen by you matches the system generated number, You WON.
-                        For this, You have given 5 chances and hints.`; 
-		//let finalCount = this.state.count;
-        return(
-              <div className="container" align="center">
-                 <h1>Let's Get Started</h1>
-                 <span>{heading}</span>
+                        For this, You have given 5 chances and hints.`;
+        //let finalCount = this.state.count;
+        return (
+            <div className="container" align="center">
+                <h1>Let's Get Started</h1>
+                <span>{heading}</span>
                 <form className="table p-3 mb-2 bg-light text-dark">
-                <div className="form-group shadow p-3 mb-5 bg-white rounded">
+                    <div className="form-group shadow p-3 mb-5 bg-white rounded">
                         <label id="inputLabel" className="text-primary">{this.state.message}</label>
-                       {(this.state.flag && this.state.count != -1) ? 
-                    	<h1 className="text-success">Congrats!!! You selected the right number : {this.state.randomNum}</h1> 
-                    	:
-                    		((this.state.flag && this.state.count == -1)) ? 
-                    				<h1 className="text-danger">You LoSe !!!  The Number is : {this.state.randomNum}</h1>
-                    				:
-                    					''
-                    	}
-                       <input type="text" className="form-control" id="inputValue" ref={(input) => { this.nameInput = input; }} onChange={this.handleChange.bind(this, "inputValue")} placeholder="Enter Number" autoFocus required/>
-                        <span style={{color: "red"}}>{this.state.errors["inputValue"]}</span>
+                        {(this.state.flag && this.state.count != -1) ?
+                            <h1 className="text-success">Congrats!!! You selected the right number : {this.state.randomNum}</h1>
+                            :
+                            ((this.state.flag && this.state.count == -1)) ?
+                                <h1 className="text-danger">You LoSe !!!  The Number is : {this.state.randomNum}</h1>
+                                :
+                                ''
+                        }
+                        <input type="text" className="form-control" id="inputValue" ref={(input) => { this.nameInput = input; }} onChange={this.handleChange.bind(this, "inputValue")} placeholder="Enter Number" autoFocus required />
+                        <span style={{ color: "red" }}>{this.state.errors["inputValue"]}</span>
                     </div>
-                    {(!this.state.flag) ? 
-					<button type="button" className="btn btn-primary" id="clickBtn" disabled={false} onClick={this.myFunc.bind(this,this.state.randomNum)}>Click</button>
-					:
-					<div className="container" align="center">
-						<div className="container" align="center">
-						<label id="inputLabel2" className="text-primary">Do You Want to Play Again?</label>
-						</div>
-					<button type="button" className="btn btn-success" id="yesBtn" onClick={this.again.bind(this)}>Yes</button>
-					<Link to="/home" className="btn btn-danger" id="noBtn" >No</Link>
-					</div>
-					}
-                    </form>
-					
-					
-                 </div>
+                    {(!this.state.flag) ?
+                        <button type="button" className="btn btn-primary" id="clickBtn" disabled={false} onClick={this.myFunc.bind(this, this.state.randomNum)}>Click</button>
+                        :
+                        <div className="container" align="center">
+                            <div className="container" align="center">
+                                <label id="inputLabel2" className="text-primary">Do You Want to Play Again?</label>
+                            </div>
+                            <button type="button" className="btn btn-success" id="yesBtn" onClick={this.again.bind(this)}>Yes</button>
+                            <Link to="/home" className="btn btn-danger" id="noBtn" >No</Link>
+                        </div>
+                    }
+                </form>
+
+
+            </div>
         );
     }
 }
