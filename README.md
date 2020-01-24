@@ -1,6 +1,8 @@
 # ReactJsPractise
 ReactJs Practise from scratch
 
+json-server --watch db.json - to watch the db
+
 *Use command to make package.json file
 
 npm init

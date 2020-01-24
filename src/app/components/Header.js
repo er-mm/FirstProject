@@ -20,6 +20,7 @@ export class Header extends React.Component {
                             <td><Link to="/play" className="btn btn-primary">Play Game</Link></td>
                             <td><Link to="/lifecycle" className="btn btn-primary">Life Cycle</Link></td>
                             <td><Link to="/pagination" className="btn btn-primary">Pagination</Link></td>
+                            <td><Link to="/learningRedux" className="btn btn-primary">LearningRedux</Link></td>
                         </tr>
                     </tbody>
                 </table>

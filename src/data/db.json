@@ -1,0 +1,52 @@
+{
+  "books": [
+    {
+      "name": "css/html",
+      "author": "abc2h",
+      "category": "academic2bj",
+      "pages": "120",
+      "price": "87",
+      "id": 2
+    },
+    {
+      "name": "Python",
+      "author": "Shiv",
+      "category": "Code",
+      "pages": "100",
+      "price": "200",
+      "id": 3
+    },
+    {
+      "name": "python",
+      "author": "py",
+      "category": "code",
+      "pages": "100",
+      "price": "200",
+      "id": 5
+    },
+    {
+      "name": "Hello",
+      "author": "World",
+      "category": "csss",
+      "pages": "100",
+      "price": "200",
+      "id": 6
+    },
+    {
+      "name": "Mayank Mittal",
+      "author": "Mittal Mayank",
+      "category": "Dev",
+      "pages": "78",
+      "price": "87",
+      "id": 8
+    },
+    {
+      "name": "book",
+      "author": "hello",
+      "category": "world",
+      "pages": "567",
+      "price": "9876",
+      "id": 9
+    }
+  ]
+}
