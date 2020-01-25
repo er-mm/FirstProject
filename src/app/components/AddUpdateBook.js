@@ -75,10 +75,8 @@ class AddUpdateBook extends React.Component {
 	}
 
 	render() {
-		log('in CreatePost Component');
 		return (
 			<div className="container">
-				Create Post Component
                <h1 align="center">{this.state.isUpdateButtonEnable ? `${'Update Book'}` : `${'Add Book'}`}</h1>
 				<form className="table p-3 mb-2 bg-light text-dark" onSubmit={this.onSubmitOrUpdate}>
 					<div>

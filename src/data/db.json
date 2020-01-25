@@ -1,52 +1,36 @@
 {
   "books": [
     {
-      "name": "css/html",
-      "author": "abc2h",
-      "category": "academic2bj",
-      "pages": "120",
-      "price": "87",
+      "name": "ReactJS",
+      "author": "Mayank",
+      "category": "Frontend",
+      "pages": "200",
+      "price": "300",
+      "id": 1
+    },
+    {
+      "name": "Redux",
+      "author": "Ayush",
+      "category": "Store",
+      "pages": "150",
+      "price": "200",
       "id": 2
     },
     {
-      "name": "Python",
+      "name": "Javascript1",
       "author": "Shiv",
-      "category": "Code",
-      "pages": "100",
-      "price": "200",
+      "category": "Script",
+      "pages": "500",
+      "price": "250",
       "id": 3
     },
     {
-      "name": "python",
-      "author": "py",
-      "category": "code",
-      "pages": "100",
-      "price": "200",
-      "id": 5
-    },
-    {
-      "name": "Hello",
-      "author": "World",
-      "category": "csss",
-      "pages": "100",
-      "price": "200",
-      "id": 6
-    },
-    {
-      "name": "Mayank Mittal",
-      "author": "Mittal Mayank",
-      "category": "Dev",
-      "pages": "78",
-      "price": "87",
-      "id": 8
-    },
-    {
-      "name": "book",
-      "author": "hello",
-      "category": "world",
-      "pages": "567",
-      "price": "9876",
-      "id": 9
+      "name": "qwerty",
+      "author": "hgvgvgh",
+      "category": "bvnnv",
+      "pages": "44545",
+      "price": "555",
+      "id": 4
     }
   ]
 }

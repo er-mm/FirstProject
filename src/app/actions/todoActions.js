@@ -4,7 +4,7 @@ import { log } from "../../utils/myLogger";
 // each action is a function that is to be exported
 //ES6
 export const fetchBooksList = () => dispatch => {
-	log('fetching book list-->');
+	log(' Action -> fetching book list-->');
 	fetch(' http://localhost:3000/books')
 		.then(res => res.json())
 		.then(data => dispatch({
@@ -14,7 +14,7 @@ export const fetchBooksList = () => dispatch => {
 }
 
 export const addBook = bookDetails => dispatch => {
-	log('Adding Book -- bookDetails');
+	log('Action -> Adding Book -- bookDetails');
 	log(bookDetails);
 	fetch(' http://localhost:3000/books', {
 		method: 'POST',
@@ -32,7 +32,7 @@ export const addBook = bookDetails => dispatch => {
 }
 
 export const deleteBook = deleteBookID => dispatch => {
-	log('deleting Book');
+	log('Action -> deleting Book');
 	fetch(' http://localhost:3000/books/' + deleteBookID, {
 		method: 'DELETE',
 		headers: {
@@ -49,7 +49,7 @@ export const deleteBook = deleteBookID => dispatch => {
 
 
 export const editBookDetails = book => dispatch => {
-	log('edit Book');
+	log('Action -> edit Book');
 	dispatch({
 		type: EDIT_BOOK,
 		payload: book
@@ -58,7 +58,7 @@ export const editBookDetails = book => dispatch => {
 }
 
 export const updateBook = (bookDetails, bookID) => dispatch => {
-	log('updating -- bookDetails');
+	log('Action -> updating -- bookDetails');
 	log(bookDetails);
 	fetch(' http://localhost:3000/books/' + bookID, {
 		method: 'PUT',

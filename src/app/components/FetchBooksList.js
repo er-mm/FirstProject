@@ -33,14 +33,14 @@ class FetchBooksList extends React.Component {
 	}
 
 	deleteBook = (e, book) => {
-		log('id of deleted book-->');
-		log(book.id);
+		log('details of deleted book-->');
+		log(book);
 		this.props.deleteBook(book.id);
 	}
 
 	editBook = (e, book) => {
-		log('id of edit book-->');
-		log(book.id);
+		log('details of edit book-->');
+		log(book);
 		this.props.editBookDetails(book)
 	}
 
@@ -53,8 +53,8 @@ class FetchBooksList extends React.Component {
 						<h4>{`Author: ${item.author}`}</h4>
 						<h5>{`Category : ${item.category}`}</h5>
 						<h6>{`Price: ${item.price}`}</h6>
-						<button id={item.id} type="button" className="btn btn-outline-primary" onClick={(e) => this.deleteBook(e, item)}>Delete Book {item.id}</button>
-						<button id={item.id} type="button" className="btn btn-outline-primary" onClick={(e) => this.editBook(e, item)}>Edit Book {item.id}</button>
+						<button id={item.id} type="button" className="btn btn-outline-primary" onClick={(e) => this.deleteBook(e, item)}>Delete Book</button>
+						<button id={item.id} type="button" className="btn btn-outline-primary" onClick={(e) => this.editBook(e, item)}>Edit Book</button>
 					</div>
 				</div>
 			)
@@ -66,7 +66,6 @@ class FetchBooksList extends React.Component {
 		);
 		return (
 			<div className="container" >
-				Fetch Post Component
                {booksList}
 			</div>
 		);

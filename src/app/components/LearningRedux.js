@@ -3,29 +3,32 @@ import { Provider } from 'react-redux';
 import FetchBooksList from './FetchBooksList';
 import AddUpdateBook from './AddUpdateBook';
 import { log } from "../../utils/myLogger";
+import { ErrorBoundary } from './ErrorBoundary';
 
 import store from '../store';
 
 export class LearningRedux extends React.Component {
-
+	// Provider : Makes the Redux store available to the connect() calls in the component hierarchy below.
 	render() {
 		log('store---');
 		log(store);
 		return (
-			<Provider store={store}>
-				<div className="row">
-					<div className="col-sm-6">
-						<div className="container">
-							<AddUpdateBook />
+			<ErrorBoundary>
+				<Provider store={store}>
+					<div className="row">
+						<div className="col-sm-6">
+							<div className="container">
+								<AddUpdateBook />
+							</div>
+						</div>
+						<div className="col-sm-6">
+							<div className="container">
+								<FetchBooksList />
+							</div>
 						</div>
 					</div>
-					<div className="col-sm-6">
-						<div className="container">
-							<FetchBooksList />
-						</div>
-					</div>
-				</div>
-			</Provider>
+				</Provider>
+			</ErrorBoundary>
 		);
 	}
 }
