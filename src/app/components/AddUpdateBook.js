@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from 'react-redux';
-import { addBook, editBookDetails, updateBook } from '../actions/todoActions';
+import { addBook, updateBook } from '../actions/todoActions';
 import { log } from "../../utils/myLogger";
 
 class AddUpdateBook extends React.Component {
@@ -113,4 +113,4 @@ const mapStateToProps = state => ({
 	editableBook: state.bookStore.editableBook,
 })
 
-export default connect(mapStateToProps, { addBook, editBookDetails, updateBook })(AddUpdateBook);
+export default connect(mapStateToProps, { addBook, updateBook })(AddUpdateBook);
