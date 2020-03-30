@@ -13,6 +13,7 @@ import { Game } from "./components/Game";
 import { LifeCycle } from "./components/LifeCycle";
 import { Pagination } from "./components/Pagination";
 import { LearningRedux } from "./components/LearningRedux";
+import { Hooks } from "./components/Hooks";
 
 class FirstComponent extends React.Component {
 	render() {
@@ -44,6 +45,7 @@ class FirstComponent extends React.Component {
 						<Route path="/play" render={(props) => <Game {...props} randomNum={randomNum} />} />
 						<Route path="/pagination" component={Pagination} />
 						<Route path="/learningRedux" component={LearningRedux} />
+						<Route path="/hooks" component={Hooks} />
 					</div>
 				</div>
 			</Router>

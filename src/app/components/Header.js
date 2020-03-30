@@ -2,9 +2,9 @@ import React from "react";
 import fetch from 'isomorphic-fetch';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
-export class Header extends React.Component {
+export function Header() {
 
-    render() {
+    // render() {
 
         return (
             <div className="container" align="center">
@@ -21,10 +21,11 @@ export class Header extends React.Component {
                             <td><Link to="/lifecycle" className="btn btn-primary">Life Cycle</Link></td>
                             <td><Link to="/pagination" className="btn btn-primary">Pagination</Link></td>
                             <td><Link to="/learningRedux" className="btn btn-primary">Library</Link></td>
+                            <td><Link to="/hooks" className="btn btn-primary">Hooks</Link></td>
                         </tr>
                     </tbody>
                 </table>
             </div>
         );
-    }
+    // }
 }

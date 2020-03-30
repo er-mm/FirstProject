@@ -12,6 +12,10 @@ export class Description extends React.Component {
                     <li className="list-group-item">CRUD Operations</li>
                     <li className="list-group-item">MondoDB (local + ATLAS)</li>
                     <li className="list-group-item">SpringBoot with local Mongo (local)</li>
+                    <li className="list-group-item">Game</li>
+                    <li className="list-group-item">LifeCycle</li>
+                    <li className="list-group-item">Pagination</li>
+                    <li className="list-group-item">Redux Flow</li>
                 </ul>
             </div>
         );
