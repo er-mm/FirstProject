@@ -22,6 +22,7 @@ export function Header() {
                             <td><Link to="/pagination" className="btn btn-primary">Pagination</Link></td>
                             <td><Link to="/learningRedux" className="btn btn-primary">Library</Link></td>
                             <td><Link to="/hooks" className="btn btn-primary">Hooks</Link></td>
+                            <td><Link to="/topSellingGames" className="btn btn-primary">Top Selling Games</Link></td>
                         </tr>
                     </tbody>
                 </table>
