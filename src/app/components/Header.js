@@ -5,7 +5,6 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 export function Header() {
 
     // render() {
-
         return (
             <div className="container" align="center">
                 <table>
@@ -23,6 +22,7 @@ export function Header() {
                             <td><Link to="/learningRedux" className="btn btn-primary">Library</Link></td>
                             <td><Link to="/hooks" className="btn btn-primary">Hooks</Link></td>
                             <td><Link to="/topSellingGames" className="btn btn-primary">Top Selling Games</Link></td>
+                            <td><Link to="/login" className="btn btn-primary">Login</Link></td>
                         </tr>
                     </tbody>
                 </table>

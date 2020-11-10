@@ -17,16 +17,17 @@ export class Logout extends React.Component {
 
     myFunc(e) {
         // e.preventDefault();
-        // this.setState({flag : !this.state.flag});
-        var date = new Date;
-        document.cookie = "TATS-SS-TokenID= ; expires = " + date;
-        console.log('done');
+        
+        var date = new Date();
+        document.cookie = 'loginName=';
+			document.cookie = 'pwd=';
+			console.table(document.cookie);
     }
     render() {
 
         return (
             <div className="container d-flex flex-row-reverse">
-                <Link to='/home' type="button" className="btn btn-primary" onClick={this.myFunc.bind(this)}>Logout</Link>
+                <Link to='/login' type="button" className="btn btn-primary" onClick={this.myFunc.bind(this)}>Logout</Link>
             </div>
         );
     }
